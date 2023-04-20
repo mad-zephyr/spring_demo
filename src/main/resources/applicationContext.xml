@@ -11,5 +11,8 @@
           class="org.spring.demo1.TestBean">
         <constructor-arg value="Neil"/>
     </bean>
+    <bean id="musicBean"
+        class="org.spring.demo1.RockMusic">
+    </bean>
 
 </beans>
