@@ -13,15 +13,32 @@
           class="org.spring.demo1.TestBean">
         <constructor-arg value="Neil"/>
     </bean>
-    <bean id="musicBean"
-        class="org.spring.demo1.ClassicalMusic">
+
+    <bean id="classicMusicBean"
+          class="org.spring.demo1.ClassicalMusic">
+    </bean>
+    <bean id="rockMusicBean"
+          class="org.spring.demo1.RockMusic">
+    </bean>
+    <bean id="folkMusicBean"
+          class="org.spring.demo1.FolkMusic">
     </bean>
 
     <bean id="musicPlayer"
-          class="org.spring.demo1.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+          class="org.spring.demo1.MusicPlayer"
+            scope="prototype"
+    >
         <property name="volume" value="${musicPlayer.volume}"/>
         <property name="name" value="${musicPlayer.name}"/>
+
+        <property name="music">
+            <list>
+                <ref bean="classicMusicBean"/>
+                <ref bean="rockMusicBean"/>
+                <ref bean="folkMusicBean"/>
+            </list>
+
+        </property>
     </bean>
 
 

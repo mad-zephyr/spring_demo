@@ -2,7 +2,7 @@ package org.spring.demo1;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestSpring {
+public class AppSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
@@ -14,10 +14,12 @@ public class TestSpring {
 
         TestBean testBean = context.getBean("testBean", TestBean.class);
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic();
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
+        MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
+        MusicPlayer musicPlayer2 = context.getBean("musicPlayer", MusicPlayer.class);
+
+        System.out.println(musicPlayer1 == musicPlayer2);
+        System.out.println(musicPlayer1);
+        musicPlayer1.playMusic();
 
         System.out.println(testBean.getName());
         context.close();

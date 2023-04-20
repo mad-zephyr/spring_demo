@@ -1,20 +1,22 @@
 package org.spring.demo1;
 
+import java.util.List;
+
 public class MusicPlayer {
-    private Music music;
+    private List<Music> music;
     private String name;
     private int volume;
 
     public MusicPlayer () { }
-    public MusicPlayer(Music music) {
+    public MusicPlayer(List<Music> music) {
         this.music = music;
     }
 
     public void playMusic() {
-        System.out.println("Playing: "+ music.getSong());
+        music.forEach(song -> System.out.println("Playing: "+ song.getSong()));
     }
 
-    public void setMusic(Music music) {
+    public void setMusic(List<Music> music) {
         this.music = music;
     }
 
@@ -32,5 +34,14 @@ public class MusicPlayer {
 
     public int getVolume() {
         return volume;
+    }
+
+    @Override
+    public String toString() {
+        return "MusicPlayer{" +
+                "music=" + music +
+                ", name='" + name + '\'' +
+                ", volume=" + volume +
+                '}';
     }
 }
