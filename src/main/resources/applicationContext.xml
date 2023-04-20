@@ -12,7 +12,12 @@
         <constructor-arg value="Neil"/>
     </bean>
     <bean id="musicBean"
-        class="org.spring.demo1.RockMusic">
+        class="org.spring.demo1.ClassicalMusic">
     </bean>
+    <bean id="musicPlayer"
+          class="org.spring.demo1.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
+
 
 </beans>
