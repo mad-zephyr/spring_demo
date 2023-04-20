@@ -8,6 +8,8 @@ public class AppSpring {
                 "applicationContext.xml"
         );
 
+        Music music = context.getBean("classicMusicBean", ClassicalMusic.class);
+
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
 

@@ -13,6 +13,7 @@
           class="org.spring.demo1.ClassicalMusic"
           init-method="init"
           destroy-method="destroy"
+          factory-method="getClassicalMusic"
     > </bean>
     <bean id="rockMusicBean"
           class="org.spring.demo1.RockMusic"

@@ -1,8 +1,14 @@
 package org.spring.demo1;
 
 public class ClassicalMusic implements Music {
+
+    private ClassicalMusic(){};
+
+    public static ClassicalMusic getClassicalMusic() {
+        return new ClassicalMusic();
+    }
     public void init() {
-        System.out.println("Doing bean initialization");
+        System.out.println("Hello, Doing Classic bean initialization");
     }
     public void destroy() {
         System.out.println("Classic Bean destroying, GoodBye");
