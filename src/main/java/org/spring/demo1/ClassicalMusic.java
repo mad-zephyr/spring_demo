@@ -1,14 +1,22 @@
 package org.spring.demo1;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.ArrayList;
+import java.util.List;
 
-@Component("classicMusicBean")
+@Component
 public class ClassicalMusic implements Music {
-
-    private ClassicalMusic(){};
-
+    ArrayList<String> musicList = new ArrayList<>();
+    public ClassicalMusic() {
+        musicList.add("Beethoven: Für Elise");
+        musicList.add("Puccini: 'O mio babbino caro' from Gianni Schicchi");
+        musicList.add("Vivaldi: The Four Seasons");
+    }
     public static ClassicalMusic getClassicalMusic() {
         return new ClassicalMusic();
     }
@@ -24,7 +32,7 @@ public class ClassicalMusic implements Music {
     }
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public String getSong(int index) {
+        return this.musicList.get(index);
     }
 }
